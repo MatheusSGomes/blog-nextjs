@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
+import { BlogPost } from "../../../data/@types/BlogPostInterface";
 
 // http://localhost:3002/posts
 
@@ -34,7 +35,7 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
 
 async function handlePost(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const newPost = req.body.data;
+        const newPost = req.body.data as BlogPost;
 
         const createdPost = await PostsApis.post('/posts', newPost);
 
