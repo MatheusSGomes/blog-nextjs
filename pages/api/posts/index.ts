@@ -19,6 +19,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         case 'POST':
             return await handlePost(req, res);
 
+        case 'PUT':
+            return await handlePut(req, res);
+
         default:
             return res.status(405).json({ error: 'Method not allowed' })
     }
@@ -45,6 +48,22 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse) {
         const createdPost = await PostsApis.post('/posts', newPost);
 
         return res.status(200).json(createdPost.data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function handlePut(req: NextApiRequest, res: NextApiResponse) {
+    try {
+        const newPost = req.body.data as BlogPost;
+
+        await PostsApis.put('/posts', newPost, {
+            params: {
+                id: newPost.id
+            }
+        });
+
+        return res.status(200).end();
     } catch (error) {
         console.log(error);
     }
