@@ -37,6 +37,11 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse) {
     try {
         const newPost = req.body.data as BlogPost;
 
+        newPost.slug = newPost.title
+            .toLowerCase()
+            .replace(/\s/g, '-')
+            .replace(/[^\w-]+/g, '');
+
         const createdPost = await PostsApis.post('/posts', newPost);
 
         return res.status(200).json(createdPost.data);
