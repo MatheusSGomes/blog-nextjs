@@ -1,7 +1,15 @@
-export default function PostList () {
+export default function PostList ({ posts }) {
+    console.log(posts)
+
     return (
         <div>
-            <div>Post 1 - dados</div>
+            {posts.map((post) => (
+                <div>
+                    <img src={post.picture} alt={post.description} />
+                    <h2>{post.title}</h2>
+                    <p>{post.description}</p>
+                </div>
+            ))}
         </div>
     );
 }
