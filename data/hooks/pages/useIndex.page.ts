@@ -1,7 +1,7 @@
-
+import { BlogPost } from "../../@types/BlogPostInterface";
 
 export default function useIndex() {
-    const posts = [
+    const posts: BlogPost[] = [
         {
             id: '1',
             title: 'Título do post 1',
