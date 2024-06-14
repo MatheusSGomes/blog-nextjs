@@ -11,9 +11,20 @@
     gap: 16px;
 }
 
-.post-form > input {
+/*
+.post-form > input,
+.post-form > div {}
+*/
+
+.post-form > :where(input, div) {
     min-height: 32px;
     padding: 8px;
     border: 1px solid var(--text-secondary);
     border-radius: 3px;
+}
+
+.post-content {
+    min-height: 150px;
+    resize: vertical;
+    overflow-y: scroll;
 }

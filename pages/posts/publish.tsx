@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from '../../styles/pages/posts/publish.module.css';
 
 export default function PostsPublish() {
     const [title, setTitle] = useState(''),
         [description, setDescription] = useState(''),
-        [picture, setPicture] = useState('');
+        [picture, setPicture] = useState(''),
+        blogEditorRef = useRef<HTMLDivElement>(null);
+
+        // blogEditorRef.current?.innerHTML;
 
     return <>
         <h2 className={styles['page-title']}>Novo Post</h2>
@@ -30,8 +33,14 @@ export default function PostsPublish() {
                 value={picture}
                 onChange={(event) => setPicture(event.target.value)}
             />
-        </form>
 
-        <button>Publicar</button>
+            <div
+                className={styles['post-content']}
+                ref={blogEditorRef}
+                contentEditable
+            />
+
+            <button type="submit">Publicar</button>
+        </form>
     </>;
 }
