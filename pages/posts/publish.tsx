@@ -1,5 +1,6 @@
 import { FormEvent, useRef, useState } from 'react';
 import styles from '../../styles/pages/posts/publish.module.css';
+import { ApiService } from '../../data/data/services/ApiService';
 
 export default function PostsPublish() {
     const [title, setTitle] = useState(''),
@@ -19,7 +20,9 @@ export default function PostsPublish() {
             postContent.length > 0
         ) {
 
-            // send post
+            await ApiService.post('posts', {
+                data: { title, description, picture, content: postContent},
+            })
 
             resetForm();
         }
