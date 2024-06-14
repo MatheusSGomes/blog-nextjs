@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import styles from '../../styles/pages/posts/publish.module.css';
 
 export default function PostsPublish() {
@@ -7,12 +7,38 @@ export default function PostsPublish() {
         [picture, setPicture] = useState(''),
         blogEditorRef = useRef<HTMLDivElement>(null);
 
-        // blogEditorRef.current?.innerHTML;
+    async function sendPost(e: FormEvent) {
+        e.preventDefault();
+
+        const postContent = blogEditorRef.current?.innerHTML || '';
+
+        if (
+            title.length > 0 &&
+            description.length > 0 &&
+            picture.length > 0 &&
+            postContent.length > 0
+        ) {
+
+            // send post
+
+            resetForm();
+        }
+    }
+
+    function resetForm() {
+        setTitle('');
+        setDescription('');
+        setPicture('');
+
+        if (blogEditorRef.current) {
+            blogEditorRef.current.innerHTML = '';
+        }
+    }
 
     return <>
         <h2 className={styles['page-title']}>Novo Post</h2>
 
-        <form className={styles['post-form']}>
+        <form onSubmit={sendPost} className={styles['post-form']}>
             <input
                 placeholder='Título'
                 type="text"
