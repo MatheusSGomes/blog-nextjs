@@ -13,6 +13,20 @@
               "slug": "titulo-do-post-2",
               "description": "Descrição do post 2",
               "picture": "https://img.freepik.com/fotos-gratis/uma-pintura-de-um-lago-de-montanha-com-uma-montanha-ao-fundo_188544-9126.jpg"
+          },
+          {
+            "id": "3",
+            "title": "Título do post 3",
+            "slug": "titulo-do-post-3",
+            "description": "Descrição do post 3",
+            "picture": "https://img.freepik.com/fotos-gratis/por-do-sol-e-silhuetas-de-arvores-nas-montanhas-generative-ai_169016-29371.jpg"
+          },
+          {
+            "id": "4",
+            "title": "Título do post 4",
+            "slug": "titulo-do-post-4",
+            "description": "Descrição do post 4",
+            "picture": "https://t4.ftcdn.net/jpg/05/21/18/03/360_F_521180377_2iAVJqBQSo3cgKaVp8vMBR8asrC61DoU.jpg"
           }
       ],
     "comments": [

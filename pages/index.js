@@ -1,7 +1,7 @@
 import useIndex from '../data/hooks/pages/useIndex.page';
 import PostList from '../ui/components/PostList/PostList';
 import Head from 'next/head';
-import { Navbar, Typography } from '@material-tailwind/react';
+import { Typography } from '@material-tailwind/react';
 
 export default function Home() {
   const { posts } = useIndex();
@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main class="mx-auto max-w-screen-xl">
-        <Navbar className="px-4 py-3 my-5 border-none" color="white">
+        <div className="px-4 py-3 my-5 border-none rounded-xl bg-white">
           <div className="flex items-center justify-center gap-y-4">
             <Typography
               as="a"
@@ -25,11 +25,11 @@ export default function Home() {
               Meu Blog
             </Typography>
           </div>
-        </Navbar>
+        </div>
 
         <div className="grid grid-cols-3 gap-5">
           {posts.map((post) => (
-            <PostList post={post} />
+            <PostList key={post.id} post={post} />
           ))}
         </div>
       </main>
