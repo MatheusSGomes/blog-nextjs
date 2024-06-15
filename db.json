@@ -1,8 +1,20 @@
 {
     "posts": [
-      { "id": "1", "title": "a title", "views": 100 },
-      { "id": "2", "title": "another title", "views": 200 }
-    ],
+          {
+              "id": "1",
+              "title": "Título do post 1",
+              "slug": "titulo-do-post-1",
+              "description": "Descrição do post 1",
+              "picture": "https://t3.ftcdn.net/jpg/05/85/86/44/360_F_585864419_kgIYUcDQ0yiLOCo1aRjeu7kRxndcoitz.jpg"
+          },
+          {
+              "id": "2",
+              "title": "Título do post 2",
+              "slug": "titulo-do-post-2",
+              "description": "Descrição do post 2",
+              "picture": "https://img.freepik.com/fotos-gratis/uma-pintura-de-um-lago-de-montanha-com-uma-montanha-ao-fundo_188544-9126.jpg"
+          }
+      ],
     "comments": [
       { "id": "1", "text": "a comment about post 1", "postId": "1" },
       { "id": "2", "text": "another comment about post 1", "postId": "1" }
