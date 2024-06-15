@@ -13,6 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+      <h1 className="text-2xl font-bold">
+        Hello world!
+      </h1>
         <PostList posts={posts} />
       </main>
     </div>
