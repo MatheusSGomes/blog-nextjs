@@ -2,6 +2,7 @@ import { FormEvent, useRef, useState } from 'react';
 import styles from '../../styles/pages/posts/publish.module.css';
 import { ApiService } from '../../data/data/services/ApiService';
 import { useRouter } from 'next/router';
+import { toast } from 'react-hot-toast';
 
 export default function PostsPublish() {
     const router = useRouter();
@@ -15,6 +16,11 @@ export default function PostsPublish() {
         e.preventDefault();
 
         const postContent = blogEditorRef.current?.innerHTML || '';
+
+        if (postContent.length === 0) {
+            toast.error('Para cadastrar o post é necessário escrever o conteúdo');
+            return false;
+        }
 
         if (
             title.length > 0 &&
@@ -56,6 +62,7 @@ export default function PostsPublish() {
                 type="text"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
+                required
             />
 
             <input
@@ -63,6 +70,7 @@ export default function PostsPublish() {
                 type="text"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
+                required
             />
 
             <input
@@ -70,6 +78,7 @@ export default function PostsPublish() {
                 type="url"
                 value={picture}
                 onChange={(event) => setPicture(event.target.value)}
+                required
             />
 
             <div

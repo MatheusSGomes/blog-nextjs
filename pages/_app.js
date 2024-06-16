@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import { Typography } from '@material-tailwind/react';
 import Link from 'next/link';
+import { Toaster } from 'react-hot-toast';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -24,7 +25,7 @@ function MyApp({ Component, pageProps }) {
             </div>
           </div>
         </div>
-
+        <Toaster position="top-right" />
         <Component {...pageProps} />
       </main>
     </div>
