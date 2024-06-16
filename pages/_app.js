@@ -10,12 +10,12 @@ function MyApp({ Component, pageProps }) {
         <meta name="meu blog" content="meu blog com excelentes posts"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main class="mx-auto max-w-screen-xl">
+      <main class="px-5 lg:py-0 mx-auto max-w-screen-lg">
         <div className="px-4 py-3 my-5 border-none rounded-xl bg-white">
           <div className="flex items-center justify-center gap-y-4">
             <Typography
               as="a"
-              href="#"
+              href="/"
               variant="h3"
               className="mr-4 ml-2 cursor-pointer py-1.5 text-black"
             >

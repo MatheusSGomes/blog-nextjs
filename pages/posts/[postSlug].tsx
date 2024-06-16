@@ -23,7 +23,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 export default function MeuPost({ post }: { post: BlogPost }) {
     return (
         <>
-            <PostBody post={{}} />
+            <PostBody post={post} />
         </>
     );
 }

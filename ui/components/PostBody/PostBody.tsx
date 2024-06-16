@@ -1,17 +1,11 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
-
 export default function PostBody({ post }) {
   return (
-    <>
-      <h1>Título do post</h1>
-      <p>Conteúdo do post aqui...</p>
-    </>
+    <div className="flex flex-col gap-5">
+      <h1 className="text-4xl font-semibold text-center">{ post.title }</h1>
+
+      <img className="w-full rounded-xl" src={ post.picture } alt={ post.title } />
+
+      <article className="text-xl">{ post.content }</article>
+    </div>
   );
 }
