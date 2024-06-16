@@ -7,7 +7,7 @@ export default function useIndex() {
 
     useEffect(() => {
         ApiService
-            .get('/')
+            .get('posts')
             .then((res) => {
                 setPosts(res.data)
             });
