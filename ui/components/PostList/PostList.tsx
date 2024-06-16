@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import Link from "next/link";
 
 export default function PostList({ post }) {
   return (
@@ -25,7 +26,9 @@ export default function PostList({ post }) {
         <Typography variant="lead" color="gray" className="mt-3 font-normal">{post.description}</Typography>
       </CardBody>
       <CardFooter className="flex items-center justify-between">
-        <Button>Ler artigo</Button>
+        <Link href={'posts/' + post.slug}>
+          <Button>Ler artigo</Button>
+        </Link>
         <Typography className="font-normal">January 10</Typography>
       </CardFooter>
     </Card>
