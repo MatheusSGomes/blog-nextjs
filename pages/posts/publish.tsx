@@ -1,8 +1,11 @@
 import { FormEvent, useRef, useState } from 'react';
 import styles from '../../styles/pages/posts/publish.module.css';
 import { ApiService } from '../../data/data/services/ApiService';
+import { useRouter } from 'next/router';
 
 export default function PostsPublish() {
+    const router = useRouter();
+
     const [title, setTitle] = useState(''),
         [description, setDescription] = useState(''),
         [picture, setPicture] = useState(''),
@@ -30,6 +33,7 @@ export default function PostsPublish() {
                 })
 
             resetForm();
+            router.push('/');
         }
     }
 
