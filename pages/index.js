@@ -1,7 +1,5 @@
 import useIndex from '../data/hooks/pages/useIndex.page';
 import PostList from '../ui/components/PostList/PostList';
-import Head from 'next/head';
-import { Typography } from '@material-tailwind/react';
 
 export default function Home() {
   const { posts } = useIndex();

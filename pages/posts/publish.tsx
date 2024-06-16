@@ -3,8 +3,10 @@ import styles from '../../styles/pages/posts/publish.module.css';
 import { ApiService } from '../../data/data/services/ApiService';
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 export default function PostsPublish() {
+    const { data: session } = useSession();
     const router = useRouter();
 
     const [title, setTitle] = useState(''),
@@ -53,41 +55,51 @@ export default function PostsPublish() {
         }
     }
 
-    return <>
-        <h2 className={styles['page-title']}>Novo Post</h2>
+    if (!session) {
+        return (
+            <div className="text-center mt-10">
+                <button onClick={() => signIn()}>Login</button>
+            </div>
+        );
+    }
 
-        <form onSubmit={sendPost} className={styles['post-form']}>
-            <input
-                placeholder='Título'
-                type="text"
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-                required
-            />
+    return (
+        <>
+            <h2 className={styles['page-title']}>Novo Post</h2>
 
-            <input
-                placeholder='Descrição'
-                type="text"
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-                required
-            />
+            <form onSubmit={sendPost} className={styles['post-form']}>
+                <input
+                    placeholder='Título'
+                    type="text"
+                    value={title}
+                    onChange={(event) => setTitle(event.target.value)}
+                    required
+                />
 
-            <input
-                placeholder='Imagem'
-                type="url"
-                value={picture}
-                onChange={(event) => setPicture(event.target.value)}
-                required
-            />
+                <input
+                    placeholder='Descrição'
+                    type="text"
+                    value={description}
+                    onChange={(event) => setDescription(event.target.value)}
+                    required
+                />
 
-            <div
-                className={styles['post-content']}
-                ref={blogEditorRef}
-                contentEditable
-            />
+                <input
+                    placeholder='Imagem'
+                    type="url"
+                    value={picture}
+                    onChange={(event) => setPicture(event.target.value)}
+                    required
+                />
 
-            <button type="submit" className="rounded-lg">Publicar</button>
-        </form>
-    </>;
+                <div
+                    className={styles['post-content']}
+                    ref={blogEditorRef}
+                    contentEditable
+                />
+
+                <button type="submit" className="rounded-lg">Publicar</button>
+            </form>
+        </>
+    );
 }

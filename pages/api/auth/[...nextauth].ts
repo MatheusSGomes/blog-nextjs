@@ -1,6 +1,7 @@
 import Credentials from 'next-auth/providers/credentials';
 import NextAuth from "next-auth/next";
 
+/* https://next-auth.js.org/configuration/providers/credentials */
 export default NextAuth({
     providers: [ Credentials({
         name: 'MeuBlog',
@@ -20,12 +21,12 @@ export default NextAuth({
 
             if (credentials &&
                 credentials.username == 'admin' &&
-                credentials.password == 'admin'
-            ) {
+                credentials.password == 'admin') {
                 return {
                     id: 1,
                     name: 'Admin',
                     email: 'admin@admin.com',
+                    image: 'https://github.com/MatheusSGomes.png'
                 }
             }
 
