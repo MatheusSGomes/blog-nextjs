@@ -69,7 +69,7 @@ export default function PostsPublish() {
                 contentEditable
             />
 
-            <button type="submit">Publicar</button>
+            <button type="submit" className="rounded-lg">Publicar</button>
         </form>
     </>;
 }

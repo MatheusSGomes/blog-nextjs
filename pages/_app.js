@@ -18,7 +18,10 @@ function MyApp({ Component, pageProps }) {
               Meu Blog
             </Typography>
 
-            <Link class="text-white bg-black p-2 rounded-md" href="posts/publish">Novo post</Link>
+            <div className="flex flex-row gap-2">
+              <Link class="text-white bg-black p-2 rounded-md" href="/">Meus posts</Link>
+              <Link class="text-white bg-black p-2 rounded-md" href="posts/publish">Novo post</Link>
+            </div>
           </div>
         </div>
 
