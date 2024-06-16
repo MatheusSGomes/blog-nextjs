@@ -19,10 +19,15 @@ export default function PostsPublish() {
             picture.length > 0 &&
             postContent.length > 0
         ) {
+            const slug = title
+                .toLowerCase()
+                .replace(/\s/g, '-')
+                .replace(/[^\w-]+/g, '');
 
-            await ApiService.post('posts', {
-                data: { title, description, picture, content: postContent},
-            })
+            await ApiService
+                .post('posts', {
+                    data: { title, description, slug, picture, content: postContent},
+                })
 
             resetForm();
         }
