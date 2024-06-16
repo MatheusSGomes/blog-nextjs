@@ -6,8 +6,11 @@ import { BlogPost } from "../../data/@types/BlogPostInterface";
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     const slug = context?.params?.postSlug;
 
-    const posts = await ApiService.get<BlogPost[]>('posts')
-    const post = await posts.data.find((post) => post.slug === slug);
+    const posts = await ApiService.get('posts');
+
+    const post = await posts.data.find((post) => {
+        return post.data.slug === slug
+    });
 
     if (!post) {
         return { notFound: true }
@@ -15,7 +18,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     return {
         props: {
-            post: post ? post : null
+            post: post ? post.data : null
         }
     }
 }
