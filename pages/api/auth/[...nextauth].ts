@@ -1,5 +1,6 @@
 import Credentials from 'next-auth/providers/credentials';
 import NextAuth from "next-auth/next";
+import { pages } from 'next/dist/build/templates/app-page';
 
 /* https://next-auth.js.org/configuration/providers/credentials */
 export default NextAuth({
@@ -32,5 +33,8 @@ export default NextAuth({
 
             return null;
         }
-    }) ]
+    }) ],
+    pages: {
+        signIn: '/auth/signin',
+    }
 });
