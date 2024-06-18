@@ -1,4 +1,28 @@
+// "use client";
+
+import { signIn } from "next-auth/react";
+import { useRef, useState } from "react";
+
 export default function SignInPage() {
+  const [usernameValue, setUsernameValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("");
+
+  // const userName = useRef("");
+  // const password = useRef("");
+
+  const onSubmit = async () => {
+    console.log(usernameValue, passwordValue)
+
+    const result = await signIn("credentials", {
+      username: usernameValue,
+      password: passwordValue,
+      redirect: true,
+      callbackUrl: "/"
+    })
+
+    console.log(result);
+  }
+
   return (
     <>
       <div className="min-h-screen flex fle-col items-center justify-center py-6 px-4">
@@ -11,8 +35,10 @@ export default function SignInPage() {
               name="email"
               type="email"
               required
-              className="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-600"
+              className="text-black bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-600"
               placeholder="Email address"
+              value={usernameValue}
+              onChange={(e) => setUsernameValue(e.target.value)}
             />
           </div>
           <div>
@@ -20,12 +46,15 @@ export default function SignInPage() {
               name="password"
               type="password"
               required
-              className="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-600"
+              className="text-black bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-600"
               placeholder="Password"
+              value={passwordValue}
+              onChange={(e) => setPasswordValue(e.target.value)}
             />
           </div>
           <div className="!mt-10">
             <button
+              onClick={onSubmit}
               type="button"
               className="w-full py-2.5 px-4 text-sm font-semibold rounded text-white bg-blue-600 hover:bg-blue-700">
               Log in
