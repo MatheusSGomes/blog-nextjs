@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="flex flex-row gap-2">
                 <Link className="text-white bg-black p-2 rounded-md" href="/">Meus posts</Link>
 
-                <Link className="text-white bg-black p-2 rounded-md" href="posts/publish">Novo post</Link>
+                <Link className="text-white bg-black p-2 rounded-md" href="/posts/publish">Novo post</Link>
 
                 {
                     session?.user ?
