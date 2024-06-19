@@ -3,7 +3,7 @@ import styles from '../../styles/pages/posts/publish.module.css';
 import { ApiService } from '../../data/data/services/ApiService';
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 
 export default function PostsPublish() {
     const { data: session } = useSession();
