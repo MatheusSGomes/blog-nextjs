@@ -4,6 +4,7 @@ import { pages } from 'next/dist/build/templates/app-page';
 
 /* https://next-auth.js.org/configuration/providers/credentials */
 export default NextAuth({
+    // secret: process.env.NEXT_AUTH_SECRET, // usada apenas em produção (dica: usar gerador de base 64)
     providers: [ Credentials({
         name: 'MeuBlog',
         credentials: {
