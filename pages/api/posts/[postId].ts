@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
-
-// http://localhost:3002/posts/123
+import { getSession } from "next-auth/react";
 
 const PostApis = axios.create({
     baseURL: 'http://localhost:3002',
@@ -11,6 +10,12 @@ const PostApis = axios.create({
 })
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+    const session = await getSession({ req });
+
+    if (!session && req.method !== 'GET') {
+        return res.status(401).send({ error: 'Unauthorized' });
+    }
+
     switch (req.method) {
         case 'GET':
             return await handleGet(req, res);
