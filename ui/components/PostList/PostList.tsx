@@ -17,16 +17,16 @@ export default function PostList({ post }) {
         color="transparent"
         className="m-0 rounded-none">
         <img
-          src={post.picture}
-          alt={post.title}
+          src={post?.picture ? post.picture : ''}
+          alt={post?.title ? post.title : ''}
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h4" color="blue-gray">{post.title}</Typography>
-        <Typography variant="lead" color="gray" className="mt-3 font-normal">{post.description}</Typography>
+        <Typography variant="h4" color="blue-gray">{post?.title ? post.title : ''}</Typography>
+        <Typography variant="lead" color="gray" className="mt-3 font-normal">{post?.description ? post.description : ''}</Typography>
       </CardBody>
       <CardFooter className="flex items-center justify-between">
-        <Link href={'posts/' + post.slug}>
+        <Link href={'posts/' + (post?.slug ? post.slug : '404')}>
           <Button>Ler artigo</Button>
         </Link>
         <Typography className="font-normal">January 10</Typography>
