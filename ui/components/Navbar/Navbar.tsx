@@ -10,7 +10,7 @@ export default function Navbar() {
             <Link className="text-black text-2xl font-medium" href="/">Meu Blog</Link>
 
             <div className="flex flex-row gap-2">
-                <Link className="text-white bg-black p-2 rounded-md" href="/">Meus posts</Link>
+                <Link className="text-white bg-black p-2 rounded-md" href="/">Posts</Link>
 
                 <Link className="text-white bg-black p-2 rounded-md" href="/posts/publish">Novo post</Link>
 
